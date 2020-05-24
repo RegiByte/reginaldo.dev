@@ -1,0 +1,48 @@
+{
+  "name": "reginaldo.dev",
+  "version": "1.0.0",
+  "description": "My personal blog",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production",
+    "deploy": "./deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BRKsReginaldo/reginaldo.dev.git"
+  },
+  "keywords": [
+    "javascript",
+    "markdown",
+    "frontend"
+  ],
+  "author": "Reginaldo Junior <reginaldo.junior696@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BRKsReginaldo/reginaldo.dev/issues"
+  },
+  "homepage": "https://github.com/BRKsReginaldo/reginaldo.dev#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  }
+}
