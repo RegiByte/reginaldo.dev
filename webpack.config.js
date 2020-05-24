@@ -19,6 +19,7 @@ module.exports = (args, env) => {
             contentBase: path.resolve(__dirname, 'dist'),
             sockHost: '3000-ffef0315-3d8f-47b9-beee-88eacdfa7f74.ws-us02.gitpod.io',
             sockPort: 443,
+            historyApiFallback: true,
             allowedHosts: [
                 'localhost',
                 '3000-ffef0315-3d8f-47b9-beee-88eacdfa7f74.ws-us02.gitpod.io'
@@ -28,6 +29,13 @@ module.exports = (args, env) => {
             splitChunks: {
                 chunks: 'all'
             }
+        },
+        resolve: {
+            alias: {
+                svelte: path.resolve('node_modules', 'svelte')
+            },
+            extensions: ['.mjs', '.js', '.svelte'],
+            mainFields: ['svelte', 'browser', 'module', 'main']
         },
         performance: {
             hints: 'warning',
@@ -39,6 +47,16 @@ module.exports = (args, env) => {
         module: {
             rules: [
                 {
+                    test: /\.(html|svelte)$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'svelte-loader',
+                        options: {
+                            emitCss: true
+                        }
+                    },
+                },
+                {
                     test: /\.jsx?$/,
                     exclude: /(node_modules)/,
                     use: {
@@ -49,7 +67,7 @@ module.exports = (args, env) => {
                     test: /\.css$/,
                     use: [
                         {
-                             loader: MiniCssExtractPlugin.loader
+                            loader: MiniCssExtractPlugin.loader
                         },
                         {
                             loader: 'css-loader'
