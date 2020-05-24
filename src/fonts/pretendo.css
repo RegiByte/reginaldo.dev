@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Pretendo";
+  src: url(./Pretendo.ttf) format("truetype");
+}
+
+html, body, pre, kbd, samp,a {
+    font-family: "Pretendo", sans-serif;
+}

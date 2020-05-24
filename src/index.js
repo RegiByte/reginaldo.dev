@@ -1,6 +1,25 @@
 import 'normalize.css'
-import TestSvelte from './test.html'
+import App from './App.html'
+import marked from 'marked'
+import hljs from 'highlight.js'
+import './fonts/pretendo.css'
+import "nes.css/css/nes.min.css";
 
-const app = new TestSvelte({
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function (code, language) {
+        const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+        return hljs.highlight(validLanguage, code).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false
+})
+
+const app = new App({
     target: document.body,
 })

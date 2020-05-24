@@ -53,11 +53,16 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "highlight.js": "^10.0.3",
     "history": "^4.10.1",
     "lodash": "^4.17.15",
+    "marked": "^1.1.0",
+    "nes.css": "^2.3.0",
     "normalize.css": "^8.0.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "svelte-routing": "^1.4.2"
   }
 }

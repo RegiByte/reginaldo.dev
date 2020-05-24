@@ -48,7 +48,6 @@ module.exports = (args, env) => {
             rules: [
                 {
                     test: /\.(html|svelte)$/,
-                    exclude: /node_modules/,
                     use: {
                         loader: 'svelte-loader',
                         options: {

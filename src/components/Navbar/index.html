@@ -1,0 +1,40 @@
+<script>
+	import {Link} from 'svelte-routing'
+    import {onMount} from 'svelte'
+    import {getFile} from '../../helpers/github'
+    import marked from 'marked'
+
+    $: headers = []
+
+    let y
+
+    onMount(async () => {
+        const {data} = await getFile('header.md')
+        const [{tokens}] = marked.lexer(data.trim())
+        headers = tokens.filter(token => token.type === 'link').map(link => ({
+            text: link.text,
+            href: link.href
+        }))
+    })
+
+</script>
+
+<style>
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+</style>
+
+<svelte:window bind:scrollY={y}/>
+<nav class="navbar" class:sticky={y > 50}>
+	{#if headers.length}
+        {#each headers as header}
+            <Link to="{header.href}">{header.text}</Link>
+        {/each}
+    {:else}
+        loading...
+    {/if}
+</nav>
